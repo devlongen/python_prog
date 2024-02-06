@@ -1,9 +1,11 @@
 def calculo_imc(peso_usuario, altura_usuario):
-    #calculando e arredondando o IMC.
+    # Calcula e arredonda o IMC
     return  peso_usuario / (altura_usuario * altura_usuario)   
 loop_calculadora = True
+# Variável de controle do loop principal da calculadora
 while loop_calculadora:
     while True:
+        # Solicita e valida o nome do usuário
         nome_usuario = str(input("Escreva o seu nome > "))
         while True:
             if nome_usuario.isalpha():
@@ -11,6 +13,7 @@ while loop_calculadora:
             else:
                 print("As informações que inseriu está incorreto, tente novamente!")
         try:
+            # Solicita e valida a idade do usuário
             idade_usuario = int(input("Digite a sua idade > "))
             if 0 <= idade_usuario <= 100:
                 break
@@ -21,6 +24,7 @@ while loop_calculadora:
 
     while True:
         try:
+            # Solicita e valida o peso do usuário
             peso_usuario = float(input("Digite o seu peso em kg > "))
             if 0 <= peso_usuario <= 500.00:
                 break
@@ -28,8 +32,8 @@ while loop_calculadora:
                 print("Erro: número inválido")
         except ValueError as e:
             print(f"Erro de valor: {e}")
-#Pedindo informação e validação do usuário.
     while True:
+        # Solicita e valida a altura do usuário
         try:
             altura_usuario = float(input("Digite a sua altura em metros > "))
             if 0 <= altura_usuario <= 2.20:
@@ -40,7 +44,9 @@ while loop_calculadora:
             print(f"Erro de valor: {e}") 
     resposta_usuario = str(input("Vamos calcular o seu IMC? (sim ou não)"))
     if resposta_usuario.lower() == 'sim':
+        # Calcula o IMC e arredonda o resultado
         resultado_imc = round(calculo_imc(peso_usuario,altura_usuario),2)
+        # Define a classificação do IMC e exibe o resultado
         if resultado_imc < 18.5:
             print("Você se encontra abaixo do peso, pois seu resultado deu:", resultado_imc)
         elif 18.5 <= resultado_imc <= 24.9:
@@ -62,4 +68,3 @@ while loop_calculadora:
         print("Espero que tenha ajudado!")
     else:
         print("Seja bem-vindo de volta!")
-    #Retorno de loop_calculadora caso ao contrário irá finalizar o programa
