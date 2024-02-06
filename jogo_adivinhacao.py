@@ -1,13 +1,13 @@
 import random
-#biblioteca de randomizar numero
+
 loop_adivinha = True
-# código do jogo de adivinhação
+# Define a variável de controle do loop principal do jogo
 while loop_adivinha:
-    tentativas = 3
-# randomizando número
+    tentativas = 3 # Número máximo de tentativas
+# Gera um número aleatório de 1 a 100
     numero_aleatorio = random.randint(1,100)
     numero_proximo = numero_aleatorio
-# declaracao de variaveis que nao sao constantes
+# Solicita e valida o nome do usuário
     print("-= Seja bem vindo ao jogo de adivinhação em Python =-")
     print("   Para começarmos preciso de suas informações  ")
     while True:
@@ -22,7 +22,7 @@ while loop_adivinha:
             break
         else:
             print("Idade inválida você inseriu um valor não congruente!")
-# pedindo e validando as informações pessoais do usuário
+ # Solicita e valida a idade do usuário
     while True:
         resposta_usuario = str(input("Vamos começar a jogar? (sim ou não)"))
         if resposta_usuario == "sim":
@@ -33,9 +33,9 @@ while loop_adivinha:
             break
         else:
             print("Você escreveu algo inválido ou algo diferente de sim ou não")
-# verificando resposta do usuário
+ # Verifica se o usuário deseja começar o jogo
     while loop_adivinha and tentativas:
-    # se o loop for verdadeiro irá entrar junto com as tentativas se não irá se encerrar
+    # Inicia o loop de tentativas enquanto o jogo estiver ativo e houver tentativas restantes
         tentativa_jogador = int(input("Você terá 3 tentativas de acertar um número aleatório de 1 até 100, BOA SORTE!"))
         if tentativa_jogador == numero_aleatorio:
             print("Parabéns! Você acertou o número!")
@@ -51,10 +51,11 @@ while loop_adivinha:
             print("Voce digitou um numero invalido tente novamente, lembrando e de 0 ate 100")
             tentativas += 1
         tentativas -= 1
+        # Verifica se acabaram as tentativas
         if tentativas == 0:
             print(f"Fim das tentativas. O número era {numero_aleatorio}.")
             loop_adivinha = False
-# funcionamento do jogo e as tentativas
+# Pergunta ao usuário se deseja tentar novamente
     while True:
             resposta_recomecar = str(input("Você deseja tentar novamente? (sim ou não)"))
             if resposta_recomecar == "sim":
@@ -66,4 +67,3 @@ while loop_adivinha:
                 break
             else:
                 print("Você digitou algo inválido ou que não condiz com a pergunta, tente novamente!")
-# perguntando para o usuário caso deseja tentar novamente
